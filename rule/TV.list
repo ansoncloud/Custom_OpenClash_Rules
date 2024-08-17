@@ -1,0 +1,17 @@
+# NAME: Lan
+# AUTHOR: blackmatrix7
+# REPO: https://github.com/ansoncloud/Custom_OpenClash_Rules
+# UPDATED: 2024-08-17 02:11:14
+# DOMAIN: 7
+# DOMAIN-SUFFIX: 127
+# IP-CIDR: 14
+# IP-CIDR6: 4
+# TOTAL: 152
+# 海外
+- DOMAIN-SUFFIX,livednow.com
+- DOMAIN-SUFFIX,orz-7.com
+- DOMAIN-SUFFIX,4gtv.tv
+- DOMAIN-SUFFIX,hinet.net
+- DOMAIN-SUFFIX,ofiii.com
+- DOMAIN-SUFFIX,mytvsuper.com
+- DOMAIN-KEYWORD,stream-link
