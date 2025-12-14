@@ -1,0 +1,670 @@
+port: 7890
+socks-port: 7891
+allow-lan: true
+mode: Rule
+log-level: info
+external-controller: :9090
+dns:
+  enable: true
+  nameserver:
+    - 119.29.29.29
+    - 223.5.5.5
+  fallback:
+    - 8.8.8.8
+    - 8.8.4.4
+    - 1.1.1.1
+    - tls://1.0.0.1:853
+    - tls://dns.google:853
+proxies:
+  - {name: '🇦🇪 迪拜-IEPL', type: trojan, server: a.b.cn, port: 58492, password: fc16c667-2bde-441d-a666-2, udp: true, skip-cert-verify: true, sni: a.b.cn.com, network: tcp }
+  - {name: '🇲🇽 墨西哥-IEPL', type: trojan, server: a.b.cnn, port: 53994, password: fc16c667-2bde-441d-a666-2, udp: true, skip-cert-verify: true, sni: a.b.cn.com, network: tcp }
+proxy-groups:
+  - name: 🚀 节点选择
+    type: select
+    proxies:
+      - 🇺🇸 美国节点
+      - 🇭🇰 香港节点
+      - 🇼🇸 台湾节点
+      - 🇯🇵 日本节点
+      - 🇸🇬 新加坡节点
+      - ♻️ 自动选择
+  - name: ♻️ 自动选择
+    type: url-test
+    url: https://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+    proxies:
+      - tapcloud		
+      - 🇭🇰 HongKong 01
+      - 🇭🇰 HongKong 02
+      - 🇭🇰 HongKong 03
+      - 🇭🇰 HongKong 04
+      - 🇨🇳 Taiwan 01
+      - 🇨🇳 Taiwan 02
+      - 🇨🇳 Taiwan 03
+      - 🇨🇳 Taiwan 04
+      - 🇸🇬 Singapore 01
+      - 🇸🇬 Singapore 02
+      - 🇸🇬 Singapore 03
+      - 🇸🇬 Singapore 04
+      - 🇯🇵 Japanese 01
+      - 🇯🇵 Japanese 02
+      - 🇯🇵 Japanese 03
+      - 🇯🇵 Japanese 04
+      - 🇺🇸 USA 01
+      - 🇺🇸 USA 02
+      - 🇺🇸 USA 03
+      - 🇺🇸 USA 04
+      - 🇺🇸 USA-家庭带宽01
+      - 🇰🇷 Korea 01
+      - 🇹🇷 Turkey
+      - wuguijiasu
+      - 🇭🇰 Hong Kong
+      - 🇭🇰 Hong Kong 移动优化
+      - 🇭🇰 Hong Kong 电信优化
+      - 🇭🇰 Hong Kong 联通优化
+      - 🇭🇰 Hong Kong 家宽
+      - 🇯🇵 Japan
+      - 🇯🇵 Japan 移动优化
+      - 🇯🇵 Japan 电信优化
+      - 🇯🇵 Japan 联通优化
+      - 🇸🇬 Singapore
+      - 🇸🇬 Singapore 移动优化
+      - 🇸🇬 Singapore 电信优化
+      - 🇸🇬 Singapore 联通优化
+      - 🇨🇳 Taiwan
+      - 🇨🇳 Taiwan 移动优化
+      - 🇨🇳 Taiwan 电信优化
+      - 🇨🇳 Taiwan 联通优化
+      - 🇨🇳 Taiwan 家宽
+      - 🇺🇸 USA
+      - 🇺🇸 USA 移动优化
+      - 🇺🇸 USA 电信优化
+      - 🇺🇸 USA 联通优化
+      - 🇰🇷 South Korea – Seoul
+      - 🇬🇧 United Kingdom – London
+      - 🇫🇷 France – Marseille
+      - 🇩🇪 Germany – Frankfurt
+      - 🇹🇭 Thailand – Bangkok
+      - 🇵🇭 Philippines – Manila
+      - 🇷🇺 Russia – Moscow
+      - 🇧🇷 Brazil – São Paulo
+      - 🇪🇬 Egypt – Cairo
+      - 🇲🇽 Mexico – Mexico City
+      - 🇹🇷 Türkiye-Istanbul
+      - hongxingdl
+      - 🇭🇰 香港中转
+      - 🇭🇰 香港中转 - 东莞
+      - 🇭🇰 香港中转 - 广州
+      - 🇨🇳 台湾中转
+      - 🇨🇳 台湾中转 - 东莞
+      - 🇨🇳 台湾中转 - 广州
+      - 🇸🇬 新加坡中转
+      - 🇸🇬 新加坡中转 - 东莞
+      - 🇸🇬 新加坡中转 - 广州
+      - 🇯🇵 日本中转
+      - 🇯🇵 日本中转 - 广州
+      - 🇯🇵 日本中转 - 东莞
+      - 🇺🇸 美国中转
+      - 🇺🇸 美国中转 - 广州
+      - 🇺🇸 美国中转 - 东莞
+      - 🇺🇸 美国中转原生
+      - 🇭🇰 香港直连1 - 0.5倍率
+      - 🇭🇰 香港直连2 - 0.5倍率
+      - 🇨🇳 台湾直连1 - 0.5倍率
+      - 🇨🇳 台湾直连2 - 0.5倍率
+      - 🇸🇬 新加坡直连1 - 0.5倍率
+      - 🇸🇬 新加坡直连2 - 0.5倍率
+      - 🇯🇵 日本直连1 - 0.5倍率
+      - 🇯🇵 日本直连2 - 0.5倍率
+      - 🇺🇸 美国直连1 - 0.5倍率
+      - 🇺🇸 美国直连2 - 0.5倍率
+      - 🇭🇰 香港 IPV6
+      - 🇨🇳 台湾 IPV6
+      - 🇸🇬 新加坡 IPV6
+      - 🇯🇵 日本 IPV6
+      - 🇺🇸 美国 IPV6
+      - 🇰🇷 韩国
+      - 🇰🇷 韩国-首尔
+      - 🇩🇪 德国
+      - 🇫🇷 法国
+      - 🇬🇧 英国
+      - 🇳🇱 荷兰
+      - 🇮🇳 印度-西部
+      - 🇨🇱 智利
+      - 🇧🇷 巴西
+      - 🇪🇸 西班牙
+      - 🇨🇭 瑞士
+      - 🇸🇪 瑞典
+      - 🇲🇽 墨西哥
+      - 🇨🇦 加拿大
+      - 🇦🇺 澳大利亚
+      - 🇦🇪 迪拜
+      - 🇿🇦 南非
+      - 🇸🇦 沙特阿拉伯
+      - 🇨🇴 哥伦比亚
+      - 🇮🇱 以色列
+      - 🇻🇳 越南
+      - 🇹🇭 泰国
+      - 🇲🇾 马来西亚
+      - 🇷🇺 莫斯科
+      - 🇵🇭 菲律宾
+      - 🇳🇬 尼日利亚
+      - 🇮🇩 印度尼西亚
+      - 🇹🇷 土耳其
+      - 🇬🇷 希腊
+      - 🇲🇲 缅甸
+      - 🇵🇰 巴基斯坦
+      - Candytally
+      - 🇭🇰 香港2-联通IEPL
+      - 🇭🇰 香港3-移动IEPL
+      - 🇭🇰 香港3-电信IEPL
+      - 🇭🇰 香港家宽1-联通IEPL
+      - 🇭🇰 香港家宽1-移动IEPL
+      - 🇭🇰 香港家宽1-电信IEPL
+      - 🇨🇳 台湾2-联通IEPL
+      - 🇨🇳 台湾2-移动IEPL
+      - 🇨🇳 台湾2-电信IEPL
+      - 🇨🇳 台湾家宽2-联通IEPL
+      - 🇨🇳 台湾家宽2-移动IEPL
+      - 🇨🇳 台湾家宽2-电信IEPL
+      - 🇸🇬 新加坡2-联通IEPL
+      - 🇸🇬 新加坡3-移动IEPL
+      - 🇸🇬 新加坡3-电信IEPL
+      - 🇯🇵 日本家宽1-移动IEPL
+      - 🇯🇵 日本家宽1-联通IEPL
+      - 🇯🇵 日本家宽1-电信IEPL
+      - 🇯🇵 日本家宽2-联通IEPL
+      - 🇯🇵 日本家宽2-移动IEPL
+      - 🇯🇵 日本家宽2-电信IEPL
+      - 🇯🇵 日本2-联通IEPL
+      - 🇯🇵 日本3-移动IEPL
+      - 🇯🇵 日本3-电信IEPL
+      - 🇺🇸 美国家宽2-联通IEPL
+      - 🇺🇸 美国家宽3-移动IEPL
+      - 🇺🇸 美国家宽3-电信IEPL
+      - 🇺🇸 美国2-联通IEPL
+      - 🇺🇸 美国1-移动IEPL
+      - 🇺🇸 美国1-电信IEPL
+      - 🇩🇪 德国2-联通IEPL
+      - 🇩🇪 德国3-移动IEPL
+      - 🇩🇪 德国3-电信IEPL
+      - 🇰🇷 韩国-IEPL
+      - 🇹🇭 泰国-IEPL
+      - 🇦🇷 阿根廷-IEPL
+      - 🇹🇷 土耳其-IEPL
+      - 🇬🇧 英国-IEPL
+      - 🇬🇧 英国家宽-IEPL
+      - 🇫🇷 法国-IEPL
+      - 🇻🇳 越南-IEPL
+      - 🇷🇺 俄罗斯-IEPL
+      - 🇦🇪 迪拜-IEPL
+      - 🇲🇽 墨西哥-IEPL  	  
+  - name: 📳 TV
+    type: select
+    proxies:
+      - 🇭🇰 香港节点
+      - 🇺🇸 美国节点
+      - 🌍 全球直连
+  - name: 🎯 4GTV
+    type: select
+    proxies:
+      - 🇼🇸 台湾节点
+      - 🌍 全球直连
+  - name: ⚙️ 自定义
+    type: select
+    proxies:
+      - 🚀 节点选择
+      - 🌍 全球直连
+  - name: 🐙 GitHub
+    type: select
+    proxies:
+      - 🚀 节点选择
+      - 🇺🇸 美国节点
+      - 🇭🇰 香港节点
+      - 🌍 全球直连
+  - name: ✈️ Telegram
+    type: select
+    proxies:
+      - 🚀 节点选择
+      - 🇺🇸 美国节点
+      - 🇭🇰 香港节点
+  - name: 🤖 ChatGPT
+    type: select
+    proxies:
+      - 🚀 节点选择
+      - 🇺🇸 美国节点
+      - 🇼🇸 台湾节点
+  - name: ▶️ YouTube
+    type: select
+    proxies:
+      - 🚀 节点选择
+      - 🇺🇸 美国节点
+      - 🇭🇰 香港节点
+      - 🇼🇸 台湾节点
+  - name: 🐦 X(Twitter)
+    type: select
+    proxies:
+      - 🚀 节点选择
+      - 🇺🇸 美国节点
+      - 🇭🇰 香港节点
+      - 🇼🇸 台湾节点
+  - name: 📘 Facebook
+    type: select
+    proxies:
+      - 🚀 节点选择
+      - 🇺🇸 美国节点
+      - 🇭🇰 香港节点
+      - 🇼🇸 台湾节点
+  - name: 🎵 TikTok
+    type: select
+    proxies:
+      - 🚀 节点选择
+      - 🇺🇸 美国节点
+      - 🇭🇰 香港节点
+      - 🇼🇸 台湾节点
+  - name: 🎬 Netflix
+    type: select
+    proxies:
+      - 🚀 节点选择
+      - 🇺🇸 美国节点
+      - 🇭🇰 香港节点
+      - 🇼🇸 台湾节点
+  - name: 🏰 Disney+
+    type: select
+    proxies:
+      - 🚀 节点选择
+      - 🇺🇸 美国节点
+      - 🇭🇰 香港节点
+      - 🇼🇸 台湾节点
+  - name: 🎧 Spotify
+    type: select
+    proxies:
+      - 🚀 节点选择
+      - 🇺🇸 美国节点
+      - 🇭🇰 香港节点
+      - 🇼🇸 台湾节点
+  - name: 🕹️ Bahamut
+    type: select
+    proxies:
+      - 🚀 节点选择
+      - 🇺🇸 美国节点
+      - 🇭🇰 香港节点
+      - 🇼🇸 台湾节点
+  - name: 📺 国外媒体
+    type: select
+    proxies:
+      - 🚀 节点选择
+      - 🇺🇸 美国节点
+      - 🇭🇰 香港节点
+      - 🇼🇸 台湾节点
+  - name: Ⓜ️ Copilot
+    type: select
+    proxies:
+      - 🚀 节点选择
+      - 🇺🇸 美国节点
+      - 🇭🇰 香港节点
+      - 🇼🇸 台湾节点
+  - name: 🇬 谷歌服务
+    type: select
+    proxies:
+      - 🚀 节点选择
+      - 🇺🇸 美国节点
+      - 🇭🇰 香港节点
+      - 🇼🇸 台湾节点
+  - name: 📢 谷歌FCM
+    type: select
+    proxies:
+      - 🚀 节点选择
+      - 🇺🇸 美国节点
+      - 🇭🇰 香港节点
+      - 🇼🇸 台湾节点
+  - name: 🍎 苹果服务
+    type: select
+    proxies:
+      - 🌍 全球直连
+      - 🚀 节点选择
+  - name: 🪟 微软服务
+    type: select
+    proxies:
+      - 🌍 全球直连
+      - 🚀 节点选择
+  - name: 🎮 游戏平台
+    type: select
+    proxies:
+      - 🌍 全球直连
+      - 🚀 节点选择
+  - name: 🧩 Steam
+    type: select
+    proxies:
+      - 🌍 全球直连
+      - 🚀 节点选择
+  - name: 🛑 广告拦截
+    type: select
+    proxies:
+      - REJECT
+      - 🌍 全球直连
+  - name: 🛡️ 隐私防护
+    type: select
+    proxies:
+      - REJECT
+      - 🌍 全球直连
+  - name: 🐟 漏网之鱼
+    type: select
+    proxies:
+      - 🌍 全球直连
+      - 🚀 节点选择
+  - name: 🌍 全球直连
+    type: select
+    proxies:
+      - DIRECT
+  - name: 🇺🇸 美国节点
+    type: url-test
+    url: https://www.gstatic.com/generate_204
+    strategy: latency
+    tolerance: 90
+    proxies:
+      - 🇺🇸 USA 01
+      - 🇺🇸 USA 02
+      - 🇺🇸 USA 03
+      - 🇺🇸 USA 04
+      - 🇺🇸 USA-家庭带宽01
+      - 🇺🇸 USA
+      - 🇺🇸 USA 移动优化
+      - 🇺🇸 USA 电信优化
+      - 🇺🇸 USA 联通优化
+      - 🇷🇺 Russia – Moscow
+      - 🇺🇸 美国中转
+      - 🇺🇸 美国中转 - 广州
+      - 🇺🇸 美国中转 - 东莞
+      - 🇺🇸 美国中转原生
+      - 🇺🇸 美国直连1 - 0.5倍率
+      - 🇺🇸 美国直连2 - 0.5倍率
+      - 🇺🇸 美国 IPV6
+      - 🇺🇸 美国家宽2-联通IEPL
+      - 🇺🇸 美国家宽3-移动IEPL
+      - 🇺🇸 美国家宽3-电信IEPL
+      - 🇺🇸 美国2-联通IEPL
+      - 🇺🇸 美国1-移动IEPL
+      - 🇺🇸 美国1-电信IEPL
+  - name: 🇭🇰 香港节点
+    type: url-test
+    url: https://www.gstatic.com/generate_204
+    strategy: latency
+    tolerance: 90
+    proxies:
+      - 🇭🇰 HongKong 01
+      - 🇭🇰 HongKong 02
+      - 🇭🇰 HongKong 03
+      - 🇭🇰 HongKong 04
+      - 🇭🇰 Hong Kong
+      - 🇭🇰 Hong Kong 移动优化
+      - 🇭🇰 Hong Kong 电信优化
+      - 🇭🇰 Hong Kong 联通优化
+      - 🇭🇰 Hong Kong 家宽
+      - 🇭🇰 香港中转
+      - 🇭🇰 香港中转 - 东莞
+      - 🇭🇰 香港中转 - 广州
+      - 🇭🇰 香港直连1 - 0.5倍率
+      - 🇭🇰 香港直连2 - 0.5倍率
+      - 🇭🇰 香港 IPV6
+      - 🇭🇰 香港2-联通IEPL
+      - 🇭🇰 香港3-移动IEPL
+      - 🇭🇰 香港3-电信IEPL
+      - 🇭🇰 香港家宽1-联通IEPL
+      - 🇭🇰 香港家宽1-移动IEPL
+      - 🇭🇰 香港家宽1-电信IEPL
+  - name: 🇼🇸 台湾节点
+    type: url-test
+    url: https://www.gstatic.com/generate_204
+    strategy: latency
+    tolerance: 90
+    proxies:
+      - 🇨🇳 Taiwan 01
+      - 🇨🇳 Taiwan 02
+      - 🇨🇳 Taiwan 03
+      - 🇨🇳 Taiwan 04
+      - 🇨🇳 Taiwan
+      - 🇨🇳 Taiwan 移动优化
+      - 🇨🇳 Taiwan 电信优化
+      - 🇨🇳 Taiwan 联通优化
+      - 🇨🇳 Taiwan 家宽
+      - 🇨🇳 台湾中转
+      - 🇨🇳 台湾中转 - 东莞
+      - 🇨🇳 台湾中转 - 广州
+      - 🇨🇳 台湾直连1 - 0.5倍率
+      - 🇨🇳 台湾直连2 - 0.5倍率
+      - 🇨🇳 台湾 IPV6
+      - 🇨🇳 台湾2-联通IEPL
+      - 🇨🇳 台湾2-移动IEPL
+      - 🇨🇳 台湾2-电信IEPL
+      - 🇨🇳 台湾家宽2-联通IEPL
+      - 🇨🇳 台湾家宽2-移动IEPL
+      - 🇨🇳 台湾家宽2-电信IEPL
+  - name: 🇯🇵 日本节点
+    type: url-test
+    url: https://www.gstatic.com/generate_204
+    strategy: latency
+    tolerance: 90
+    proxies:
+      - 🇯🇵 Japanese 01
+      - 🇯🇵 Japanese 02
+      - 🇯🇵 Japanese 03
+      - 🇯🇵 Japanese 04
+      - 🇯🇵 Japan
+      - 🇯🇵 Japan 移动优化
+      - 🇯🇵 Japan 电信优化
+      - 🇯🇵 Japan 联通优化
+      - 🇯🇵 日本中转
+      - 🇯🇵 日本中转 - 广州
+      - 🇯🇵 日本中转 - 东莞
+      - 🇯🇵 日本直连1 - 0.5倍率
+      - 🇯🇵 日本直连2 - 0.5倍率
+      - 🇯🇵 日本 IPV6
+      - 🇯🇵 日本家宽1-移动IEPL
+      - 🇯🇵 日本家宽1-联通IEPL
+      - 🇯🇵 日本家宽1-电信IEPL
+      - 🇯🇵 日本家宽2-联通IEPL
+      - 🇯🇵 日本家宽2-移动IEPL
+      - 🇯🇵 日本家宽2-电信IEPL
+      - 🇯🇵 日本2-联通IEPL
+      - 🇯🇵 日本3-移动IEPL
+      - 🇯🇵 日本3-电信IEPL
+  - name: 🇸🇬 新加坡节点
+    type: url-test
+    url: https://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 90
+    proxies:
+      - 🇸🇬 Singapore
+      - 🇸🇬 Singapore 移动优化
+      - 🇸🇬 Singapore 电信优化
+      - 🇸🇬 Singapore 联通优化
+      - 🇸🇬 新加坡中转
+      - 🇸🇬 新加坡中转 - 东莞
+      - 🇸🇬 新加坡中转 - 广州
+      - 🇸🇬 新加坡直连1 - 0.5倍率
+      - 🇸🇬 新加坡直连2 - 0.5倍率
+      - 🇸🇬 新加坡 IPV6
+      - 🇸🇬 新加坡2-联通IEPL
+      - 🇸🇬 新加坡3-移动IEPL
+      - 🇸🇬 新加坡3-电信IEPL
+      - 🇸🇬 Singapore 01
+      - 🇸🇬 Singapore 02
+      - 🇸🇬 Singapore 03
+      - 🇸🇬 Singapore 04
+rules:
+  - GEOIP,CN,🌍 全球直连,no-resolve
+  - GEOIP,LAN,🌍 全球直连,no-resolve
+  - GEOSITE,cn,🌍 全球直连,no-resolve
+  - GEOSITE,category-game-platforms-download,🌍 全球直连
+  - GEOSITE,category-public-tracker,🌍 全球直连
+
+  - GEOSITE,category-ads-all,🛑 广告拦截
+  - DOMAIN-SUFFIX,doubleclick.net,🛑 广告拦截
+  - DOMAIN-SUFFIX,googletagmanager.com,🛑 广告拦截
+  - DOMAIN-SUFFIX,google-analytics.com,🛑 广告拦截
+  - DOMAIN-SUFFIX,app-measurement.com,🛑 广告拦截
+  - DOMAIN-SUFFIX,facebook.net,🛑 广告拦截
+  - DOMAIN-SUFFIX,ads-twitter.com,🛑 广告拦截
+  - DOMAIN-SUFFIX,analytics.twitter.com,🛑 广告拦截
+ 
+  - DOMAIN-SUFFIX,google-analytics.com,🛡️ 隐私防护
+  - DOMAIN-SUFFIX,googletagmanager.com,🛡️ 隐私防护
+  - DOMAIN-SUFFIX,app-measurement.com,🛡️ 隐私防护
+  - DOMAIN-SUFFIX,firebaseio.com,🛡️ 隐私防护
+  - DOMAIN-SUFFIX,googleadservices.com,🛡️ 隐私防护
+  - DOMAIN-SUFFIX,facebook.net,🛡️ 隐私防护
+  - DOMAIN-SUFFIX,connect.facebook.net,🛡️ 隐私防护
+  - DOMAIN-SUFFIX,analytics.twitter.com,🛡️ 隐私防护
+  - DOMAIN-SUFFIX,ads-twitter.com,🛡️ 隐私防护
+  - DOMAIN-SUFFIX,doubleclick.net,🛡️ 隐私防护
+  - DOMAIN-SUFFIX,stats.g.doubleclick.net,🛡️ 隐私防护
+  - DOMAIN-SUFFIX,static.ads-twitter.com,🛡️ 隐私防护
+  - DOMAIN-SUFFIX,segment.io,🛡️ 隐私防护
+  - DOMAIN-SUFFIX,segment.com,🛡️ 隐私防护
+  - DOMAIN-SUFFIX,mixpanel.com,🛡️ 隐私防护
+  - DOMAIN-SUFFIX,hotjar.com,🛡️ 隐私防护
+  - DOMAIN-SUFFIX,clarity.ms,🛡️ 隐私防护
+
+  - DOMAIN-SUFFIX,stream-link.org,🇸🇬 新加坡节点
+  - DOMAIN-KEYWORD,astro,🇸🇬 新加坡节点
+  - DOMAIN-KEYWORD,wavve,🇸🇬 新加坡节点
+  - DOMAIN-SUFFIX,starhubgo.com,🇸🇬 新加坡节点
+  
+  - DOMAIN-SUFFIX,passwdword.xyz,⚙️ 自定义
+  - DOMAIN-SUFFIX,xn--ngstr-lra8j.com,⚙️ 自定义
+  - DOMAIN-SUFFIX,services.googleapis.cn,⚙️ 自定义
+  - DOMAIN-SUFFIX,stun.playstation.net,⚙️ 自定义
+  - DOMAIN-SUFFIX,llgjc1.com,⚙️ 自定义
+  - DOMAIN-SUFFIX,llg01.com,⚙️ 自定义
+  - DOMAIN-KEYWORD,llgjc1,⚙️ 自定义
+  - DOMAIN-KEYWORD,llg01,⚙️ 自定义
+  - DOMAIN-KEYWORD,llgjc,⚙️ 自定义
+  - DOMAIN-SUFFIX,llgjc.xyz,⚙️ 自定义
+  - DOMAIN-SUFFIX,amclubss.com,⚙️ 自定义
+  - DOMAIN-SUFFIX,809098.xyz,⚙️ 自定义
+  - DOMAIN-KEYWORD,llgjc,⚙️ 自定义
+  - DOMAIN-KEYWORD,llg01,⚙️ 自定义
+  - DOMAIN-KEYWORD,llgjc1,⚙️ 自定义
+  - DOMAIN-SUFFIX,llgjc.xyz,⚙️ 自定义
+  - DOMAIN-KEYWORD,hongxing,⚙️ 自定义
+  - DOMAIN-KEYWORD,candytally,⚙️ 自定义
+  - DOMAIN-KEYWORD,tapcloud,⚙️ 自定义
+  - DOMAIN-SUFFIX,良心云.com,⚙️ 自定义
+  - DOMAIN-SUFFIX,liangxin.xyz,⚙️ 自定义
+  - DOMAIN-SUFFIX,69yun69.com,⚙️ 自定义
+  - DOMAIN-SUFFIX,chatra.io,⚙️ 自定义
+  - DOMAIN-SUFFIX,ajin168.com,⚙️ 自定义
+  - DOMAIN-SUFFIX,极速时代.com,⚙️ 自定义
+  - DOMAIN-SUFFIX,极速666.com,⚙️ 自定义
+  - DOMAIN-SUFFIX,byvvcsx.com,⚙️ 自定义
+  - DOMAIN-SUFFIX,crisp.chat,⚙️ 自定义
+  - DOMAIN-SUFFIX,极速网.com,⚙️ 自定义
+  - DOMAIN-SUFFIX,极速上网.com,⚙️ 自定义
+  - DOMAIN-SUFFIX,jsy902.xyz,⚙️ 自定义
+  - DOMAIN-SUFFIX,cloudflare.com,⚙️ 自定义
+  - DOMAIN-SUFFIX,doubleclick.net,⚙️ 自定义
+  - DOMAIN-SUFFIX,adobedc.net,⚙️ 自定义
+  - DOMAIN-SUFFIX,z2u.com,⚙️ 自定义
+  - DOMAIN-SUFFIX,amazonaws.com,⚙️ 自定义
+  - DOMAIN-SUFFIX,cloudflare.com,⚙️ 自定义
+  - DOMAIN-SUFFIX,nodeseek.com,⚙️ 自定义
+  - DOMAIN-SUFFIX,go-iptv.ggff.net,⚙️ 自定义
+  - DOMAIN-SUFFIX,858.qzz.io,⚙️ 自定义
+  - DOMAIN-SUFFIX,bee.tzh911.qzz.io,⚙️ 自定义
+  - DOMAIN-SUFFIX,cluster-cz5nqyh5nreq6ua6gaqd7okl7o.cloudworkstations.dev,⚙️ 自定义
+  - DOMAIN-SUFFIX,qzz.io,⚙️ 自定义
+  - DOMAIN-SUFFIX,r2.hfyrw.com,⚙️ 自定义
+  - DOMAIN-SUFFIX,pendy.dpdns.org,⚙️ 自定义
+  - DOMAIN-SUFFIX,diver.eu.org,⚙️ 自定义
+  - DOMAIN-SUFFIX,wrod.diver.eu.org,⚙️ 自定义
+  - DOMAIN-SUFFIX,judy.xx.kg,⚙️ 自定义
+  - DOMAIN-SUFFIX,8plus.eu.org,⚙️ 自定义
+  - DOMAIN-SUFFIX,ru8.dpdns.org,⚙️ 自定义
+  - DOMAIN-SUFFIX,vip-tptv.xyz,⚙️ 自定义
+  - DOMAIN-SUFFIX,hudsonvalleyhost.com,⚙️ 自定义
+  - DOMAIN-SUFFIX,qichiyu.com,⚙️ 自定义
+
+  - DOMAIN-SUFFIX,livednow.com,📳 TV
+  - DOMAIN-SUFFIX,orz-7.com,📳 TV
+  - DOMAIN-SUFFIX,mytvsuper.com,📳 TV
+  - DOMAIN-KEYWORD,stream-link,📳 TV
+  - DOMAIN-SUFFIX,smart.pendy.dpdns.org,📳 TV
+  - DOMAIN-SUFFIX,sport.pendy.dpdns.org,📳 TV
+  - DOMAIN-SUFFIX,docker.livednow.dpdns.org,📳 TV
+  - DOMAIN-SUFFIX,4gtv.livednow.dpdns.org,📳 TV
+  - DOMAIN-SUFFIX,iptv.mydiver.eu.org,📳 TV
+  - DOMAIN-SUFFIX,946985.filegear-sg.me,📳 TV
+  - DOMAIN-SUFFIX,smt.858.qzz.io,📳 TV
+  - DOMAIN-SUFFIX,iptv.4666888.xyz,📳 TV
+  - DOMAIN-SUFFIX,bxtv.3a.ink,📳 TV
+  - DOMAIN-SUFFIX,bxtv.757888.xyz,📳 TV
+  - DOMAIN-SUFFIX,860775.xyz,📳 TV
+  - DOMAIN-SUFFIX,mytvsuper.946985.qzz.io,📳 TV
+  - DOMAIN-SUFFIX,mytvsuperepg.860775.xyz,📳 TV
+  - DOMAIN-SUFFIX,php.946985.filegear-sg.me,📳 TV
+  - DOMAIN-SUFFIX,cdn.meta.ndmdhs.com,📳 TV
+  - DOMAIN-SUFFIX,hrtn.net,📳 TV
+  - DOMAIN-SUFFIX,tvb.com,📳 TV
+  - DOMAIN-SUFFIX,edgeware.tvb.com,📳 TV
+
+  - DOMAIN-SUFFIX,4gtv.tv,🎯 4GTV
+  - DOMAIN-SUFFIX,cdn.hinet.net,🎯 4GTV
+  - DOMAIN-SUFFIX,api2.4gtv.tv,🎯 4GTV
+  - DOMAIN-SUFFIX,cdn.hinet.net,🎯 4GTV
+  - DOMAIN-SUFFIX,infini.money,🎯 4GTV
+  - DOMAIN-SUFFIX,hinet.net,🎯 4GTV
+  - DOMAIN-SUFFIX,4gtv.tv,🎯 4GTV
+  - DOMAIN-SUFFIX,api2.4gtv.tv,🎯 4GTV
+  - DOMAIN-SUFFIX,ofiii.com,🎯 4GTV
+
+  - IP-CIDR,109.239.140.0/24,✈️ Telegram,no-resolve
+  - IP-CIDR,139.59.210.98/32,✈️ Telegram,no-resolve
+  - IP-CIDR,149.154.160.0/20,✈️ Telegram,no-resolve
+  - IP-CIDR,196.55.216.167/32,✈️ Telegram,no-resolve
+  - IP-CIDR,5.28.192.0/18,✈️ Telegram,no-resolve
+  - IP-CIDR,91.108.0.0/16,✈️ Telegram,no-resolve
+  - IP-CIDR6,2001:67c:4e8::/48,✈️ Telegram,no-resolve
+  - IP-CIDR6,2001:b28:f23c::/47,✈️ Telegram,no-resolve
+  - IP-CIDR6,2001:b28:f23f::/48,✈️ Telegram,no-resolve
+  - IP-CIDR6,2a0a:f280::/29,✈️ Telegram,no-resolve
+  - GEOSITE,github,🐙 GitHub
+  - GEOIP,telegram,✈️ Telegram
+  - GEOSITE,bing,🤖 ChatGPT
+  - GEOSITE,category-ai-!cn,🤖 ChatGPT
+  - GEOSITE,openai,🤖 ChatGPT
+  - GEOSITE,youtube,▶️ YouTube
+  - GEOIP,twitter,🐦 X(Twitter)
+  - GEOIP,facebook,📘 Facebook 
+  - GEOSITE,tiktok,🎵 TikTok      
+  - GEOSITE,netflix,🎬 Netflix
+  - GEOIP,netflix,🎬 Netflix
+  - GEOSITE,disney,🏰 Disney+
+  - GEOSITE,spotify,🎧 Spotify
+  - GEOSITE,bahamut,🕹️ Bahamut  
+  - GEOSITE,apple-tvplus,📺 国外媒体
+  - GEOSITE,hbo,📺 国外媒体
+  - GEOSITE,primevideo,📺 国外媒体
+  - GEOSITE,category-emby,📺 国外媒体
+  - GEOSITE,category-entertainment,📺 国外媒体  
+  - GEOSITE,microsoft,Ⓜ️ Copilot
+  - GEOSITE,google,🇬 谷歌服务
+  - GEOIP,google,🇬 谷歌服务,no-resolve  
+  - GEOSITE,googlefcm,📢 谷歌FCM
+  - GEOSITE,apple,🍎 苹果服务
+  - GEOSITE,onedrive,🪟 微软服务  
+  - GEOSITE,category-games,🎮 游戏平台
+  - GEOSITE,steam,🧩 Steam    
+  
+  - GEOSITE,category-communication,🚀 节点选择
+  - GEOSITE,category-social-media-!cn,🚀 节点选择
+  - GEOSITE,talkatone,🚀 节点选择
+  - GEOSITE,category-pt,🚀 节点选择
+  - GEOSITE,paypal,🚀 节点选择
+  - GEOSITE,category-ecommerce,🚀 节点选择
+  - GEOSITE,gfw,🚀 节点选择
+    
+  - MATCH,🐟 漏网之鱼
+ 
+
